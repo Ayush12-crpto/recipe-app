@@ -42,7 +42,7 @@ def generate_recipe():
     gemini_api_url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': f'AIzaSyAqfODprj3nYZxhr0-jvgukHtoGpMRPDs8'  # Replace with your API Key
+        'Authorization': f''  # Replace with your API Key
     }
     payload = {
         "contents": [{"parts": [{"text": prompt}]}]
