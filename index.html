@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Veggify Recipe Generator + Firebase Auth</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; padding: 0; }
+    input, button { padding: 10px; margin: 5px 0; width: 300px; }
+    button { cursor: pointer; }
+    h1, h2 { color: #4CAF50; }
+    #result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+
+<body>
+
+  <h1>Veggify Recipe Generator</h1>
+
+  <h2>Sign Up</h2>
+  <input type="text" id="signupName" placeholder="Name" /><br>
+  <input type="email" id="signupEmail" placeholder="Email" /><br>
+  <input type="password" id="signupPassword" placeholder="Password" /><br>
+  <input type="text" id="signupDiet" placeholder="Diet Preference (e.g., vegetarian)" /><br>
+  <button id="signupBtn">Sign Up</button>
+
+  <h2>Log In</h2>
+  <input type="email" id="loginEmail" placeholder="Email" /><br>
+  <input type="password" id="loginPassword" placeholder="Password" /><br>
+  <button id="loginBtn">Log In</button>
+
+  <button id="logoutBtn">Log Out</button>
+
+  <hr>
+
+  <h2>Generate a Recipe</h2>
+  <form id="recipeForm">
+    <label for="ingredients">Ingredients:</label><br>
+    <input type="text" id="ingredients" name="ingredients" placeholder="e.g., tomatoes, spinach" required><br><br>
+
+    <label for="diet">Diet Preferences:</label><br>
+    <input type="text" id="diet" name="diet" placeholder="e.g., vegan"><br><br>
+
+    <button type="submit">Generate Recipe</button>
+  </form>
+
+  <div id="result"></div>
+
+  <!-- External JS File -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
