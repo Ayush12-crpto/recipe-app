@@ -1,9 +1,9 @@
-// Import Firebase SDKs
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// 🔧 Firebase Config
+
 const firebaseConfig = {
   apiKey: "AIzaSyCZ6zji5AeN6XH3j_6-SvGclzpcejwREaE",
   authDomain: "login-9be9e.firebaseapp.com",
@@ -14,15 +14,15 @@ const firebaseConfig = {
 };
 
 
-// 🔧 Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// 🟢 Global variable to track logged-in userId
+
 let currentUserId = null;
 
-// ✅ Auth State Listener (Tracks login/logout automatically)
+
 onAuthStateChanged(auth, user => {
   if (user) {
     currentUserId = user.uid;
@@ -33,7 +33,7 @@ onAuthStateChanged(auth, user => {
   }
 });
 
-// ✅ Sign Up
+
 document.getElementById('signupBtn').addEventListener('click', async () => {
   const name = document.getElementById('signupName').value;
   const email = document.getElementById('signupEmail').value;
@@ -61,8 +61,7 @@ document.getElementById('signupBtn').addEventListener('click', async () => {
     alert(error.message);
   }
 });
-
-// ✅ Login
+                                                      
 document.getElementById('loginBtn').addEventListener('click', async () => {
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
@@ -89,7 +88,7 @@ document.getElementById('loginBtn').addEventListener('click', async () => {
   }
 });
 
-// ✅ Logout
+
 document.getElementById('logoutBtn').addEventListener('click', async () => {
   try {
     await signOut(auth);
@@ -100,14 +99,14 @@ document.getElementById('logoutBtn').addEventListener('click', async () => {
   }
 });
 
-// ✅ Recipe Form (Sending Data to Flask Backend)
+
 document.getElementById('recipeForm').addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const ingredients = document.getElementById('ingredients').value;
   const diet = document.getElementById('diet').value;
 
-  // Check if user is logged in before sending recipe request
+  
   if (!currentUserId) {
     alert("⚠️ You must be logged in to generate a recipe!");
     return;
@@ -128,7 +127,7 @@ document.getElementById('recipeForm').addEventListener('submit', async (e) => {
 
     const data = await response.json();
 
-    // ✅ Handle backend response
+    
     const resultDiv = document.getElementById('result');
 
     if (data.recipe) {
