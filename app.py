@@ -34,11 +34,11 @@ def generate_recipe():
 
     user_profile = user_doc.to_dict()
 
-    # Create prompt for Gemini API
+    
     user_diet = diet or user_profile.get('preferences', {}).get('diet', '')
     prompt = f"Create a {user_diet} recipe using {ingredients}. User preferences: {user_profile.get('preferences', {})}"
 
-    # Call Gemini API (dummy example, you need to replace with working API key)
+    
     gemini_api_url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
     headers = {
         'Content-Type': 'application/json',
